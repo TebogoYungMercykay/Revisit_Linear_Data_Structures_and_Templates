@@ -2,12 +2,15 @@
 
 template <class T>
 CLinkedList<T>::CLinkedList() {
-    // Constructor implementation goes here
+    this->head = NULL;
 }
 
 template <class T>
 CLinkedList<T>::~CLinkedList() {
-    // Destructor implementation goes here
+    if (this->head != NULL) {
+        this->clear();
+        this->head = NULL;
+    }
 }
 
 template <class T>
