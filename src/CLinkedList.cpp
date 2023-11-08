@@ -169,11 +169,9 @@ void CLinkedList<T>::print() const {
     }
 }
 
-// Here
-
 template <class T>
 void CLinkedList<T>::reverse() {
-    int length = this->length() - 1;
+    int length = this->length();
     for (int k = 1, index = 1; k < length; k++) {
         Node<T>* current = this->head;
         for (int i = 0; i < index; i++) {
@@ -207,117 +205,65 @@ T CLinkedList<T>::operator[](int index) const {
     return this->get(index);
 }
 
+// Here
+
 template <class T>
 void CLinkedList<T>::filter(std::string op, T query) {
     if (this->head != NULL) {
         if (op == ">") {
-            Node<T>* current = this->head;
-            Node<T>* predecessor = NULL;
-            do {
-                if (!(current->data > query)) {
-                    Node<T>* nodeToRemove = current;
-                    if (predecessor == NULL) {
-                        this->head = current->next;
-                    } else {
-                        predecessor->next = current->next;
+            for (int k = 0; k < this->length(); k++) {
+                if (k < this->length()) {
+                    if (!(this->get(k) > query)) {
+                        this->remove(k);
+                        k--;
                     }
-                    current = current->next;
-                    delete nodeToRemove;
-                } else {
-                    predecessor = current;
-                    current = current->next;
                 }
-            } while (current != this->head);
+            }
         } else if (op == "<") {
-			Node<T>* current = this->head;
-            Node<T>* predecessor = NULL;
-            do {
-                if (!(current->data < query)) {
-                    Node<T>* nodeToRemove = current;
-                    if (predecessor == NULL) {
-                        this->head = current->next;
-                    } else {
-                        predecessor->next = current->next;
+			for (int k = 0; k < this->length(); k++) {
+                if (k < this->length()) {
+                    if (!(this->get(k) < query)) {
+                        this->remove(k);
+                        k--;
                     }
-                    current = current->next;
-                    delete nodeToRemove;
-                } else {
-                    predecessor = current;
-                    current = current->next;
                 }
-            } while (current != this->head);
+            }
 		} else if (op == ">=") {
-			Node<T>* current = this->head;
-            Node<T>* predecessor = NULL;
-            do {
-                if (!(current->data >= query)) {
-                    Node<T>* nodeToRemove = current;
-                    if (predecessor == NULL) {
-                        this->head = current->next;
-                    } else {
-                        predecessor->next = current->next;
+			for (int k = 0; k < this->length(); k++) {
+                if (k < this->length()) {
+                    if (!(this->get(k) >= query)) {
+                        this->remove(k);
+                        k--;
                     }
-                    current = current->next;
-                    delete nodeToRemove;
-                } else {
-                    predecessor = current;
-                    current = current->next;
                 }
-            } while (current != this->head);
+            }
 		} else if (op == "<=") {
-			Node<T>* current = this->head;
-            Node<T>* predecessor = NULL;
-            do {
-                if (!(current->data <= query)) {
-                    Node<T>* nodeToRemove = current;
-                    if (predecessor == NULL) {
-                        this->head = current->next;
-                    } else {
-                        predecessor->next = current->next;
+			for (int k = 0; k < this->length(); k++) {
+                if (k < this->length()) {
+                    if (!(this->get(k) <= query)) {
+                        this->remove(k);
+                        k--;
                     }
-                    current = current->next;
-                    delete nodeToRemove;
-                } else {
-                    predecessor = current;
-                    current = current->next;
                 }
-            } while (current != this->head);
+            }
 		} else if (op == "==") {
-			Node<T>* current = this->head;
-            Node<T>* predecessor = NULL;
-            do {
-                if (!(current->data == query)) {
-                    Node<T>* nodeToRemove = current;
-                    if (predecessor == NULL) {
-                        this->head = current->next;
-                    } else {
-                        predecessor->next = current->next;
+			for (int k = 0; k < this->length(); k++) {
+                if (k < this->length()) {
+                    if (!(this->get(k) == query)) {
+                        this->remove(k);
+                        k--;
                     }
-                    current = current->next;
-                    delete nodeToRemove;
-                } else {
-                    predecessor = current;
-                    current = current->next;
                 }
-            } while (current != this->head);
+            }
 		} else if (op == "!=") {
-			Node<T>* current = this->head;
-            Node<T>* predecessor = NULL;
-            do {
-                if (!(current->data != query)) {
-                    Node<T>* nodeToRemove = current;
-                    if (predecessor == NULL) {
-                        this->head = current->next;
-                    } else {
-                        predecessor->next = current->next;
+			for (int k = 0; k < this->length(); k++) {
+                if (k < this->length()) {
+                    if (!(this->get(k) != query)) {
+                        this->remove(k);
+                        k--;
                     }
-                    current = current->next;
-                    delete nodeToRemove;
-                } else {
-                    predecessor = current;
-                    current = current->next;
                 }
-            } while (current != this->head);
+            }
 		}
     }
 }
@@ -343,12 +289,12 @@ void CLinkedList<T>::swap(int index1, int index2) {
 template <class T>
 void CLinkedList<T>::slice(int start, int end) {
 	int length = this->length();
-	if (start >= 0 && start < length && end >= 0 && end < length && start < end) {
+	if (start >= 0 && start < length && end >= 0 && end < length && start <= end) {
 		for (int i = 0; i < start; i++) {
 			this->remove(0);
 		}
-		for (int i = end - start + 1; i < this->length() - 1; i++) {
-			this->remove(end - start + 1);
+		for (int i = 0; i <= (end - start) + 1; i++) {
+			this->remove((end - start) + 1);
 		}
 	}
 }

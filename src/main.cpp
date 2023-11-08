@@ -152,27 +152,116 @@ void t1(){
     list.removeElements(6);
     list.print();
     cout << list.length() << endl;
+
+    cout << "----- reverse -----" << endl;
+    list.append(5);
+    // list.reverse();
+    // list.print();
+    list.append(4);
+    // list.reverse();
+    // list.print();
+    list.append(3);
+    list.append(2);
+    list.append(1);
+    list.append(0);
+    // list.reverse();
+    // list.print();
+    list.append(-1);
+    list.append(-2);
+    list.append(-3);
+    list.append(-4);
+    list.append(-5);
+    list.reverse();
+    list.print();
+
+    cout << "Subscript" << endl;
+    cout << list[0] << endl;
+    cout << list[1] << endl;
+    cout << list[list.length() - 1] << endl;
+    cout << list[list.length()] << endl;
+
+    cout << "----- filter -----" << endl;
+    list.filter(">", -4);
+    list.print();
+    list.filter(">", -3);
+    list.print();
+    list.filter(">", -1);
+    list.print();
+    list.filter(">=", 1);
+    list.print();
+    list.filter("<=", 4);
+    list.print();
+    list.filter("!=", 3);
+    list.print();
+    list.filter("==", 1);
+    list.print();
+    list.filter("==", 2);
+    list.print();
+    cout << "----- slice -----" << endl;
+    list.append(1);
+    list.append(6);
+    list.append(3);
+    list.append(4);
+    list.append(23);
+    list.append(2);
+    list.append(6);
+    list.append(3);
+    list.append(0);
+    list.append(51);
+    list.append(9);
+    // list.slice(1, 6);
+    list.print();
+    list.slice(2, 5);
+    list.print();
+    list.slice(0, 1);
+    list.print();
+    list.slice(2, 2);
+    list.print();
+    list.slice(1, 1);
+    list.print();
+    list.clear();
+    cout << "----- swap -----" << endl;
+    list.append(1);
+    list.append(6);
+    list.append(3);
+    list.append(4);
+    list.append(23);
+    list.print();
+    list.swap(0, 1);
+    list.print();
+    list.swap(1, 2);
+    list.print();
+    list.swap(0, 1);
+    list.print();
+    list.swap(0, 3);
+    list.print();
+    list.swap(0, 4);
+    list.print();
+    list.swap(-1, 4);
+    list.print();
+    list.swap(0, 6);
+    list.print();
 }
 
 void t2(){
-    cout << "Testing CLinkedList" << endl;
     CLinkedList<int> list;
-    cout << "Testing rotations" << endl;
-    list.append(1);
-    list.append(2);
-    list.append(3);
-    list.append(4);
-    list.append(5);
-    list.RRotate(2);
-    list.print();// Output should be "4 -> 5 -> 1 -> 2 -> 3\n"
-    list.LRotate(7);
-    list.print();// Output should be "1 -> 2 -> 3 -> 4 -> 5\n"
-    cout << "Testing Assignment operator and rotation" << endl;
-    CLinkedList<int> list2;
-    list2= list;
-    list2.print();// Output should be "1 -> 2 -> 3 -> 4 -> 5\n"
-    list2.RRotate(2);
-    list2.print();// Output should be "4 -> 5 -> 1 -> 2 -> 3\n"
+    // cout << "Testing CLinkedList" << endl;
+    // cout << "Testing rotations" << endl;
+    // list.append(1);
+    // list.append(2);
+    // list.append(3);
+    // list.append(4);
+    // list.append(5);
+    // list.RRotate(2);
+    // list.print();// Output should be "4 -> 5 -> 1 -> 2 -> 3\n"
+    // list.LRotate(7);
+    // list.print();// Output should be "1 -> 2 -> 3 -> 4 -> 5\n"
+    // cout << "Testing Assignment operator and rotation" << endl;
+    // CLinkedList<int> list2;
+    // list2= list;
+    // list2.print();// Output should be "1 -> 2 -> 3 -> 4 -> 5\n"
+    // list2.RRotate(2);
+    // list2.print();// Output should be "4 -> 5 -> 1 -> 2 -> 3\n"
 }
 
 // void t3(){
@@ -244,7 +333,7 @@ void t2(){
 
 int main(){
     t1();
-    // t2();
+    t2();
     // t3();
     // t4();
     return 0;
