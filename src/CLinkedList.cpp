@@ -422,50 +422,50 @@ bool CLinkedList<T>::operator==(const CLinkedList<T> &other) const {
     CLinkedList<T> firstList = *this;
     CLinkedList<T> secondList = other;
 
-    Node<T>* current1 = firstList.head;
+    Node<T>* currentFirstList = firstList.head;
     do {
-        Node<T>* current2 = secondList.head;
+        Node<T>* currentSecondList = secondList.head;
         Node<T>* predecessor2 = nullptr;
-        while (current2 != nullptr && current2->data != current1->data) {
-            predecessor2 = current2;
-            current2 = current2->next;
+        while (currentSecondList != nullptr && currentSecondList->data != currentFirstList->data) {
+            predecessor2 = currentSecondList;
+            currentSecondList = currentSecondList->next;
         }
-        if (current2 == nullptr) {
+        if (currentSecondList == nullptr) {
             return false;
         }
         if (predecessor2 == nullptr) {
-            secondList.head = current2->next;
+            secondList.head = currentSecondList->next;
         } else {
-            predecessor2->next = current2->next;
+            predecessor2->next = currentSecondList->next;
         }
-        delete current2;
-        current1 = current1->next;
-    } while (current1 != firstList.head);
+        delete currentSecondList;
+        currentFirstList = currentFirstList->next;
+    } while (currentFirstList != firstList.head);
 
     if (secondList.head != nullptr) {
         return false;
     }
 
     secondList = *this;
-    current1 = other.head;
+    currentFirstList = other.head;
     do {
-        Node<T>* current2 = secondList.head;
+        Node<T>* currentSecondList = secondList.head;
         Node<T>* predecessor2 = nullptr;
-        while (current2 != nullptr && current2->data != current1->data) {
-            predecessor2 = current2;
-            current2 = current2->next;
+        while (currentSecondList != nullptr && currentSecondList->data != currentFirstList->data) {
+            predecessor2 = currentSecondList;
+            currentSecondList = currentSecondList->next;
         }
-        if (current2 == nullptr) {
+        if (currentSecondList == nullptr) {
             return false;
         }
         if (predecessor2 == nullptr) {
-            secondList.head = current2->next;
+            secondList.head = currentSecondList->next;
         } else {
-            predecessor2->next = current2->next;
+            predecessor2->next = currentSecondList->next;
         }
-        delete current2;
-        current1 = current1->next;
-    } while (current1 != other.head);
+        delete currentSecondList;
+        currentFirstList = currentFirstList->next;
+    } while (currentFirstList != other.head);
 
     return secondList.head == nullptr;
 }
