@@ -472,7 +472,7 @@ bool CLinkedList<T>::operator==(const CLinkedList<T> &other) const {
 
 template <class T>
 void CLinkedList<T>::operator+=(const CLinkedList<T> &other) {
-    if (this != &other) {
+    if (this != &other && !(*this == other)) {
         Node<T>* current = other.head;
         do {
             this->append(current->data);
