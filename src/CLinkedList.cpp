@@ -116,12 +116,30 @@ void CLinkedList<T>::removeElements(T data) {
 
 template <class T>
 void CLinkedList<T>::print() const {
-    // print implementation goes here
+    if (this->head == NULL) {
+        std::cout << "Empty" << std::endl;
+    } else {
+        Node<T>* current = this->head;
+        while (current->next != this->head) {
+            std::cout << current->data << " -> ";
+            current = current->next;
+        }
+        std::cout << current->data << std::endl;
+    }
 }
 
 template <class T>
 void CLinkedList<T>::reverse() {
-    // reverse implementation goes here
+    int length = this->length() - 1;
+    for (int k = 1, index = 1; k < length; k++) {
+        Node<T>* current = this->head;
+        for (int i = 0; i < index; i++) {
+            current = current->next;
+        }
+        this->prepend(current->data);
+        this->remove(index + 1);
+        index += 1;
+    }
 }
 
 template <class T>
