@@ -14,18 +14,6 @@
 
 using namespace std;
 
-/* -------------------------------------------------------------------------- */
-/*                                 PLEASE READ                                */
-/* -------------------------------------------------------------------------- */
-/*
-    Hello 110 Student :). This main.cpp provides very very basic testing that should help prevent some errors
-    in your code. However, it is not a complete test suite. You should write your own tests to ensure that your
-    code is working as expected
-
-    Please do not be surprised if this main works but your FF upload fails as the FF main is different from this one.
-    This Assignment has many edge cases, please test as much as possible.
-*/
-
 void t1(){
     cout << "Testing CLinkedList" << endl;
     CLinkedList<int> list;
