@@ -419,12 +419,12 @@ bool CLinkedList<T>::operator==(const CLinkedList<T> &other) const {
         return false;
     }
 
-    CLinkedList<T> list1 = *this;
-    CLinkedList<T> list2 = other;
+    CLinkedList<T> firstList = *this;
+    CLinkedList<T> secondList = other;
 
-    Node<T>* current1 = list1.head;
+    Node<T>* current1 = firstList.head;
     do {
-        Node<T>* current2 = list2.head;
+        Node<T>* current2 = secondList.head;
         Node<T>* predecessor2 = nullptr;
         while (current2 != nullptr && current2->data != current1->data) {
             predecessor2 = current2;
@@ -434,22 +434,22 @@ bool CLinkedList<T>::operator==(const CLinkedList<T> &other) const {
             return false;
         }
         if (predecessor2 == nullptr) {
-            list2.head = current2->next;
+            secondList.head = current2->next;
         } else {
             predecessor2->next = current2->next;
         }
         delete current2;
         current1 = current1->next;
-    } while (current1 != list1.head);
+    } while (current1 != firstList.head);
 
-    if (list2.head != nullptr) {
+    if (secondList.head != nullptr) {
         return false;
     }
 
-    list2 = *this;
+    secondList = *this;
     current1 = other.head;
     do {
-        Node<T>* current2 = list2.head;
+        Node<T>* current2 = secondList.head;
         Node<T>* predecessor2 = nullptr;
         while (current2 != nullptr && current2->data != current1->data) {
             predecessor2 = current2;
@@ -459,7 +459,7 @@ bool CLinkedList<T>::operator==(const CLinkedList<T> &other) const {
             return false;
         }
         if (predecessor2 == nullptr) {
-            list2.head = current2->next;
+            secondList.head = current2->next;
         } else {
             predecessor2->next = current2->next;
         }
@@ -467,7 +467,7 @@ bool CLinkedList<T>::operator==(const CLinkedList<T> &other) const {
         current1 = current1->next;
     } while (current1 != other.head);
 
-    return list2.head == nullptr;
+    return secondList.head == nullptr;
 }
 
 template <class T>
