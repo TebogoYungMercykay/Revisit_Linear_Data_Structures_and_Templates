@@ -1,5 +1,5 @@
 main:
-	g++ -g *.cpp -std=c++98 -pedantic -o main
+	g++ -g main.cpp -std=c++98 -pedantic -o main
 
 clean:
 	rm -f *.o *.tar.gz main
