@@ -90,7 +90,28 @@ void CLinkedList<T>::insert(T data, int index) {
 
 template <class T>
 void CLinkedList<T>::removeElements(T data) {
-    // removeElements implementation goes here
+    Node<T>* current = this->head;
+    Node<T>* predecessor = nullptr;
+    while (current != nullptr) {
+        if (current->data == data) {
+            Node<T>* toDelete = current;
+            if (predecessor == nullptr) {
+                this->head = current->next;
+            } else {
+                predecessor->next = current->next;
+            }
+            current = current->next;
+            delete toDelete;
+        } else {
+            predecessor = current;
+            current = current->next;
+        }
+
+        // Checks to avoid infinite Looping
+        if (current == this->head) {
+            break;
+        }
+    }
 }
 
 template <class T>
