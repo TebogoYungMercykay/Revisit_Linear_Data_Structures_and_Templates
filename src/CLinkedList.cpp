@@ -15,12 +15,31 @@ CLinkedList<T>::~CLinkedList() {
 
 template <class T>
 void CLinkedList<T>::prepend(T data) {
-    // prepend implementation goes here
+    Node* newNode = new Node(data, this->head);
+    if (this->head == NULL) {
+        this->head = newNode;
+    } else {
+        Node* current = this->head;
+        while (current->next != this->head) {
+            current = current->next;
+        }
+        current->next = newNode;
+        this->head = newNode;
+    }
 }
 
 template <class T>
 void CLinkedList<T>::append(T data) {
-    // append implementation goes here
+    Node* newNode = new Node(data, this->head);
+    if (this->head == NULL) {
+        this->head = newNode;
+    } else {
+        Node* current = this->head;
+        while (current->next != this->head) {
+            current = current->next;
+        }
+        current->next = newNode;
+    }
 }
 
 template <class T>
@@ -51,10 +70,10 @@ void CLinkedList<T>::reverse() {
 template <class T>
 void CLinkedList<T>::clear() {
     if (this->head != NULL) {
-        Node<T> *curr = this->head->next;
-        while (curr != this->head) {
-            Node<T> *temp = curr;
-            curr = curr->next;
+        Node<T>* current = this->head->next;
+        while (current != this->head) {
+            Node<T>* temp = current;
+            current = current->next;
             temp->next = NULL;
             delete temp;
             temp = NULL;
@@ -69,10 +88,10 @@ template <class T>
 int CLinkedList<T>::length() const {
     int size = 0;
     if (this->head != NULL) {
-        Node<T> *curr = this->head->next;
-        while (curr != this->head) {
+        Node<T>* current = this->head->next;
+        while (current != this->head) {
             size += 1;
-            curr = curr->next;
+            current = current->next;
         }
     }
     return size;
@@ -134,7 +153,7 @@ void CLinkedList<T>::operator+=(const CLinkedList<T> &other) {
 }
 
 template <class T>
-CLinkedList<T> *CLinkedList<T>::operator-(const CLinkedList<T> &other) const {
+CLinkedList<T>* CLinkedList<T>::operator-(const CLinkedList<T> &other) const {
     // operator- implementation goes here
 }
 
