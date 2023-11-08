@@ -84,16 +84,29 @@ void CLinkedList<T>::append(T data) {
 template <class T>
 void CLinkedList<T>::remove(int index) {
     int length = this->length();
-    if (index < length && index >= 0 && this->head != NULL) {
+    if (index < length && index >= 0 && this->head != NULL && length > 0) {
         Node<T>* nodeToRemove;
-        if (index == 0) {
-            nodeToRemove = this->head;
+        if (index == 0 && length == 1) {
+            this->head->next = NULL;
+            delete this->head;
+            this->head = NULL;
+        } else if (index == 0 && length != 1) {
             Node<T>* current = this->head;
             while (current->next != NULL && current->next != this->head) {
                 current = current->next;
             }
             current->next = this->head->next;
+            nodeToRemove = this->head;
             this->head = this->head->next;
+            nodeToRemove->next = NULL;
+            delete nodeToRemove;
+            nodeToRemove = NULL;
+        } else if (index == 1 && length == 2) {
+            nodeToRemove = this->head->next;
+            this->head->next = this->head;
+            nodeToRemove->next = NULL;
+            delete nodeToRemove;
+            nodeToRemove = NULL;
         } else {
             Node<T>* current = this->head;
             for (int i = 0; i < index - 1; i++) {
@@ -101,10 +114,10 @@ void CLinkedList<T>::remove(int index) {
             }
             nodeToRemove = current->next;
             current->next = current->next->next;
+            nodeToRemove->next = NULL;
+            delete nodeToRemove;
+            nodeToRemove = NULL;
         }
-        nodeToRemove->next = NULL;
-        delete nodeToRemove;
-        nodeToRemove = NULL;
     }
 }
 
@@ -130,26 +143,14 @@ void CLinkedList<T>::insert(T data, int index) {
 
 template <class T>
 void CLinkedList<T>::removeElements(T data) {
-    Node<T>* current = this->head;
-    Node<T>* predecessor = NULL;
-    while (current != NULL) {
-        if (current->data == data) {
-            Node<T>* nodeToRemove = current;
-            if (predecessor == NULL) {
-                this->head = current->next;
-            } else {
-                predecessor->next = current->next;
+    if (this->head != NULL) {
+        for (int k = 0; k < this->length(); k++) {
+            if (k < this->length()) {
+                if (this->get(k) == data) {
+                    this->remove(k);
+                    k--;
+                }
             }
-            current = current->next;
-            delete nodeToRemove;
-        } else {
-            predecessor = current;
-            current = current->next;
-        }
-
-        // Checks to avoid infinite Looping
-        if (current == this->head) {
-            break;
         }
     }
 }
@@ -167,6 +168,8 @@ void CLinkedList<T>::print() const {
         std::cout << current->data << std::endl;
     }
 }
+
+// Here
 
 template <class T>
 void CLinkedList<T>::reverse() {

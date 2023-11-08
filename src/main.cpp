@@ -17,7 +17,7 @@ using namespace std;
 void t1(){
     cout << "Testing CLinkedList" << endl;
     CLinkedList<int> list;
-    cout << "Testing basics" << endl;
+    cout << "----- Append, Prepend and Print -----" << endl;
     list.append(1);
     list.clear();
     cout << list.get(0) << endl;
@@ -26,6 +26,12 @@ void t1(){
     cout << list.get(0) << endl;
     cout << list.length() << endl;
     list.append(2);
+    list.print();
+    list.remove(list.length() - 1);
+    list.print();
+    list.remove(list.length() - 1);
+    list.print();
+    list.remove(list.length() - 1);
     list.print();
     list.clear();
     list.prepend(1);
@@ -48,22 +54,104 @@ void t1(){
     list.prepend(2);
     list.prepend(7);
     list.print();
-    // list.insert(4, 3);
-    // list.insert(4, 3);
-    // list.insert(4, 3);
-    // cout << list.length() << endl;
-    // list.print();// Output should be "3 -> 1 -> 2 -> 4\n"
-    // list.remove(0);//remember remove works based of index
-    // list.remove(0);
-    // list.remove(100);//test for invalid
-    // list.remove(1);
-    // list.removeElements(2);
-    // list.print();// Output should be "Empty\n
-    // list.append(1);
-    // list.append(1);
-    // list.print();// Output should be "1 -> 1\n"
-    // list.removeElements(1);
-    // list.print();// Output should be "Empty\n
+
+    cout << "----- Removing -----" << endl;
+    list.remove(0);
+    list.print();
+    list.remove(0);
+    list.print();
+    list.remove(4);
+    list.print();
+    list.remove(0);
+    list.print();
+    list.remove(100);
+    list.print();
+    list.remove(1);
+    list.print();
+    cout << "----- Start -----" << endl;
+    list.print();
+    list.remove(list.length() - 1);
+    list.print();
+    cout << list.length() << endl;
+    list.remove(2);
+    list.print();
+    cout << list.length() << endl;
+    list.remove(1);
+    list.print();
+    cout << list.length() << endl;
+    list.remove(list.length() - 1);
+    list.print();
+    cout << list.length() << endl;
+    list.remove(list.length() - 1);
+    list.print();
+    cout << list.length() << endl;
+    list.remove(list.length() - 1);
+    list.print();
+    cout << list.length() << endl;
+    list.remove(list.length() - 1);
+    list.print();
+    cout << list.length() << endl;
+
+    cout << "----- Inserting -----" << endl;
+    list.insert(3, 0);
+    list.print();
+    cout << list.length() << endl;
+    list.insert(4, list.length() - 1);
+    list.print();
+    cout << list.length() << endl;
+    list.insert(6, list.length());
+    list.print();
+    cout << list.length() << endl;
+    list.insert(2, 1);
+    list.print();
+    cout << list.length() << endl;
+    list.insert(5, 1);
+    list.print();
+    cout << list.length() << endl;
+    list.insert(8, 2);
+    list.print();
+    cout << list.length() << endl;
+    list.insert(9, list.length() - 2);
+    list.print();
+    cout << list.length() << endl;
+    list.insert(2, 1);
+    list.print();
+    cout << list.length() << endl;
+    list.insert(5, 1);
+    list.print();
+    cout << list.length() << endl;
+    list.insert(8, 2);
+    list.print();
+    cout << list.length() << endl;
+    list.insert(9, list.length() - 2);
+    list.print();
+    cout << list.length() << endl;
+
+    cout << "Remove Elements" << endl;
+    list.removeElements(9);
+    list.print();
+    cout << list.length() << endl;
+    list.removeElements(8);
+    list.print();
+    cout << list.length() << endl;
+    list.removeElements(4);
+    list.print();
+    cout << list.length() << endl;
+    list.removeElements(5);
+    list.print();
+    cout << list.length() << endl;
+    list.removeElements(2);
+    list.print();
+    cout << list.length() << endl;
+    list.removeElements(6);
+    list.print();
+    cout << list.length() << endl;
+    list.removeElements(3);
+    list.print();
+    cout << list.length() << endl;
+    list.removeElements(6);
+    list.print();
+    cout << list.length() << endl;
 }
 
 void t2(){
