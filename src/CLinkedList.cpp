@@ -50,12 +50,32 @@ void CLinkedList<T>::reverse() {
 
 template <class T>
 void CLinkedList<T>::clear() {
-    // clear implementation goes here
+    if (this->head != NULL) {
+        Node<T> *curr = this->head->next;
+        while (curr != this->head) {
+            Node<T> *temp = curr;
+            curr = curr->next;
+            temp->next = NULL;
+            delete temp;
+            temp = NULL;
+        }
+        this->head->next = NULL;
+        delete this->head;
+        this->head = NULL;
+    }
 }
 
 template <class T>
 int CLinkedList<T>::length() const {
-    // length implementation goes here
+    int size = 0;
+    if (this->head != NULL) {
+        Node<T> *curr = this->head->next;
+        while (curr != this->head) {
+            size += 1;
+            curr = curr->next;
+        }
+    }
+    return size;
 }
 
 template <class T>
