@@ -483,10 +483,33 @@ void CLinkedList<T>::operator+=(const CLinkedList<T> &other) {
 
 template <class T>
 CLinkedList<T>* CLinkedList<T>::operator-(const CLinkedList<T> &other) const {
-    // operator- implementation goes here
+    CLinkedList<T>* result = new CLinkedList<T>();
+    *result = *this;
+    Node<T>* current = other.head;
+    do {
+        result->removeElements(current->data);
+        current = current->next;
+    } while (current != other.head);
+    return result;
 }
 
 template <class T>
 void CLinkedList<T>::consume(CLinkedList<T> &other) {
-    // consume implementation goes here
+    if (this != &other && other.head != nullptr) {
+        if (this->head == nullptr) {
+            this->head = other.head;
+        } else {
+            Node<T>* current = this->head;
+            while (current->next != this->head) {
+                current = current->next;
+            }
+            current->next = other.head;
+            Node<T>* otherCurrent = other.head;
+            while (otherCurrent->next != other.head) {
+                otherCurrent = otherCurrent->next;
+            }
+            otherCurrent->next = this->head;
+        }
+        other.head = nullptr;
+    }
 }
