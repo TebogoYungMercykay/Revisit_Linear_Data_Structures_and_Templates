@@ -472,7 +472,13 @@ bool CLinkedList<T>::operator==(const CLinkedList<T> &other) const {
 
 template <class T>
 void CLinkedList<T>::operator+=(const CLinkedList<T> &other) {
-    // operator+= implementation goes here
+    if (this != &other) {
+        Node<T>* current = other.head;
+        do {
+            this->append(current->data);
+            current = current->next;
+        } while (current != other.head);
+    }
 }
 
 template <class T>
