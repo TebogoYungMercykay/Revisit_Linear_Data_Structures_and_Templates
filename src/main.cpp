@@ -14,10 +14,27 @@
 
 using namespace std;
 
+void t1();
+void t2();
+void t3();
+void t4();
+void t5();
+void t6();
+
+int main(){
+    t1();
+    t2();
+    t3();
+    t4();
+    t5();
+    t6();
+    return 0;
+}
+
 void t1(){
-    cout << "Testing CLinkedList" << endl;
     CLinkedList<int> list;
-    cout << "Testing basics" << endl;
+    cout << "-------------------------------" << endl;
+    cout << "----- Testing ClinkedList -----" << endl;
     list.append(1);
     list.append(2);
     list.prepend(3);
@@ -37,9 +54,8 @@ void t1(){
 }
 
 void t2(){
-    cout << "Testing CLinkedList" << endl;
     CLinkedList<int> list;
-    cout << "Testing rotations" << endl;
+    cout << "----- Testing rotations -----" << endl;
     list.append(1);
     list.append(2);
     list.append(3);
@@ -49,7 +65,7 @@ void t2(){
     list.print();// Output should be "4 -> 5 -> 1 -> 2 -> 3\n"
     list.LRotate(7);
     list.print();// Output should be "1 -> 2 -> 3 -> 4 -> 5\n"
-    cout << "Testing Assignment operator and rotation" << endl;
+    cout << "----- Testing Assignment operator and rotation -----" << endl;
     CLinkedList<int> list2;
     list2= list;
     list2.print();// Output should be "1 -> 2 -> 3 -> 4 -> 5\n"
@@ -58,7 +74,6 @@ void t2(){
 }
 
 void t3(){
-    cout << "Testing CLinkedList" << endl;
     CLinkedList<int> list;
     cout << "----- Append, Prepend and Print -----" << endl;
     list.append(1);
@@ -170,7 +185,7 @@ void t3(){
     list.print();
     cout << list.length() << endl;
 
-    cout << "Remove Elements" << endl;
+    cout << "----- Remove Elements -----" << endl;
     list.removeElements(9);
     list.print();
     cout << list.length() << endl;
@@ -217,7 +232,7 @@ void t3(){
     list.reverse();
     list.print();
 
-    cout << "Subscript" << endl;
+    cout << "----- Subscript -----" << endl;
     cout << list[0] << endl;
     cout << list[1] << endl;
     cout << list[list.length() - 1] << endl;
@@ -300,7 +315,7 @@ void t4(){
     list.append(9);
     list.append(10);
     list.append(11);
-    cout << "RRotate" << endl;
+    cout << "----- RRotate -----" << endl;
     list.print();
     list.RRotate(1);
     list.print();
@@ -308,7 +323,7 @@ void t4(){
     list.print();
     list.RRotate(1);
     list.print();
-    cout << "LRotate" << endl;
+    cout << "----- LRotate -----" << endl;
     list.print();
     list.LRotate(1);
     list.print();
@@ -431,9 +446,9 @@ void t4(){
 }
 
 void t5(){
-    cout << "Testing Stack" << endl;
+    cout << "-------------------------" << endl;
+    cout << "----- Testing Stack -----" << endl;
     Stack<int> stack;
-    cout << "Testing basics" << endl;
     stack.push(1);
     stack.push(2);
     stack.push(3);
@@ -447,7 +462,7 @@ void t5(){
     stack.push(1);
     stack.push(2);
     stack.push(3);
-    cout << "Testing copy constructor" << endl;
+    cout << "----- Testing copy constructor -----" << endl;
     Stack<int> stack2(stack);
     cout << stack2.pop() << endl;// Output should be "3\n"
     cout << stack2.pop() << endl;// Output should be "2\n"
@@ -468,9 +483,9 @@ void t5(){
 }
 
 void t6(){
-    cout << "Testing Queue" << endl;
+    cout << "-------------------------" << endl;
+    cout << "----- Testing Queue -----" << endl;
     Queue<int> queue;
-    cout << "Testing basics" << endl;
     queue.enqueue(1);
     queue.enqueue(2);
     queue.enqueue(3);
@@ -484,7 +499,7 @@ void t6(){
     queue.enqueue(1);
     queue.enqueue(2);
     queue.enqueue(3);
-    cout << "Testing copy constructor" << endl;
+    cout << "----- Testing copy constructor -----" << endl;
     Queue<int> queue2(queue);
     cout << queue2.dequeue() << endl;// Output should be "1\n"
     cout << queue2.dequeue() << endl;// Output should be "2\n"
@@ -503,14 +518,4 @@ void t6(){
 
     cout << ((queue.isEmpty() == false) ? "True" : "False") << endl;
     cout << ((queue2.isEmpty() == false) ? "True" : "False") << endl;
-}
-
-int main(){
-    // t1();
-    // t2();
-    // t3();
-    // t4();
-    // t5();
-    t6();
-    return 0;
 }
