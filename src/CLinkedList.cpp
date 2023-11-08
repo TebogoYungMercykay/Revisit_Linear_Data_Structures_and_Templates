@@ -426,7 +426,6 @@ bool CLinkedList<T>::operator==(const CLinkedList<T> &other) const {
     do {
         Node<T>* current2 = list2.head;
         Node<T>* predecessor2 = nullptr;
-
         while (current2 != nullptr && current2->data != current1->data) {
             predecessor2 = current2;
             current2 = current2->next;
@@ -439,12 +438,34 @@ bool CLinkedList<T>::operator==(const CLinkedList<T> &other) const {
         } else {
             predecessor2->next = current2->next;
         }
-
         delete current2;
-        Node<T>* toDelete = current1;
         current1 = current1->next;
-        delete toDelete;
     } while (current1 != list1.head);
+
+    if (list2.head != nullptr) {
+        return false;
+    }
+
+    list2 = *this;
+    current1 = other.head;
+    do {
+        Node<T>* current2 = list2.head;
+        Node<T>* predecessor2 = nullptr;
+        while (current2 != nullptr && current2->data != current1->data) {
+            predecessor2 = current2;
+            current2 = current2->next;
+        }
+        if (current2 == nullptr) {
+            return false;
+        }
+        if (predecessor2 == nullptr) {
+            list2.head = current2->next;
+        } else {
+            predecessor2->next = current2->next;
+        }
+        delete current2;
+        current1 = current1->next;
+    } while (current1 != other.head);
 
     return list2.head == nullptr;
 }
