@@ -144,18 +144,8 @@ void CLinkedList<T>::reverse() {
 
 template <class T>
 void CLinkedList<T>::clear() {
-    if (this->head != NULL) {
-        Node<T>* current = this->head->next;
-        while (current != this->head) {
-            Node<T>* temp = current;
-            current = current->next;
-            temp->next = NULL;
-            delete temp;
-            temp = NULL;
-        }
-        this->head->next = NULL;
-        delete this->head;
-        this->head = NULL;
+    while (this->head != NULL) {
+        this->remove(0);
     }
 }
 
