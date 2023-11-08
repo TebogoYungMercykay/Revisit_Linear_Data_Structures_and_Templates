@@ -165,12 +165,25 @@ int CLinkedList<T>::length() const {
 
 template <class T>
 T CLinkedList<T>::get(int index) const {
-    // get implementation goes here
+	int length = this->length();
+	int indexGet = 0;
+    if (index >= 0 && index < length && this->head != NULL) {
+		Node<T>* current = this->head->next;
+		while (current != this->head && indexGet < length) {
+			if (indexGet == index) {
+				return current;
+			}
+			current = current->next;
+			indexGet += 1;
+		}
+	}
+
+	return T();
 }
 
 template <class T>
 T CLinkedList<T>::operator[](int index) const {
-    // operator[] implementation goes here
+    return this->get(index);
 }
 
 template <class T>
