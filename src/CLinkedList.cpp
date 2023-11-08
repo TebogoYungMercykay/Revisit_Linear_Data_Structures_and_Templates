@@ -14,13 +14,51 @@ CLinkedList<T>::~CLinkedList() {
 }
 
 template <class T>
+int CLinkedList<T>::length() const {
+    int size = 0;
+    if (this->head != NULL) {
+        size += 1;
+        Node<T>* current = this->head->next;
+        while (current != NULL && current != this->head) {
+            size += 1;
+            current = current->next;
+        }
+    }
+
+    return size;
+}
+
+template <class T>
+T CLinkedList<T>::get(int index) const {
+	int length = this->length();
+	int indexGet = 0;
+	if (this->head != NULL) {
+		if (index == 0) {
+			return this->head->data;
+		} else if (index > 0 && index < length) {
+			Node<T>* current = this->head;
+            do {
+				if (indexGet == index) {
+					return current->data;
+				}
+				current = current->next;
+				indexGet += 1;
+            } while (current != NULL && current != this->head);
+		}
+	}
+
+	return T();
+}
+
+template <class T>
 void CLinkedList<T>::prepend(T data) {
-    Node* newNode = new Node(data, this->head);
+    Node<T>* newNode = new Node<T>(data, this->head);
     if (this->head == NULL) {
         this->head = newNode;
+        this->head->next = newNode;
     } else {
-        Node* current = this->head;
-        while (current->next != this->head) {
+        Node<T>* current = this->head;
+        while (current->next != NULL && current->next != this->head) {
             current = current->next;
         }
         current->next = newNode;
@@ -30,12 +68,13 @@ void CLinkedList<T>::prepend(T data) {
 
 template <class T>
 void CLinkedList<T>::append(T data) {
-    Node* newNode = new Node(data, this->head);
+    Node<T>* newNode = new Node<T>(data, this->head);
     if (this->head == NULL) {
         this->head = newNode;
+        this->head->next = newNode;
     } else {
-        Node* current = this->head;
-        while (current->next != this->head) {
+        Node<T>* current = this->head;
+        while (current->next != NULL && current->next != this->head) {
             current = current->next;
         }
         current->next = newNode;
@@ -45,12 +84,12 @@ void CLinkedList<T>::append(T data) {
 template <class T>
 void CLinkedList<T>::remove(int index) {
     int length = this->length();
-    if (index < length && index >= 0) {
+    if (index < length && index >= 0 && this->head != NULL) {
         Node<T>* nodeToRemove;
         if (index == 0) {
             nodeToRemove = this->head;
             Node<T>* current = this->head;
-            while (current->next != this->head) {
+            while (current->next != NULL && current->next != this->head) {
                 current = current->next;
             }
             current->next = this->head->next;
@@ -63,6 +102,7 @@ void CLinkedList<T>::remove(int index) {
             nodeToRemove = current->next;
             current->next = current->next->next;
         }
+        nodeToRemove->next = NULL;
         delete nodeToRemove;
         nodeToRemove = NULL;
     }
@@ -77,8 +117,8 @@ void CLinkedList<T>::insert(T data, int index) {
         } else if (index == length) {
             this->append(data);
         } else {
-            Node* newNode = new Node(data);
-            Node* current = this->head;
+            Node<T>* newNode = new Node<T>(data);
+            Node<T>* current = this->head;
             for (int i = 0; i < index - 1; i++) {
                 current = current->next;
             }
@@ -91,11 +131,11 @@ void CLinkedList<T>::insert(T data, int index) {
 template <class T>
 void CLinkedList<T>::removeElements(T data) {
     Node<T>* current = this->head;
-    Node<T>* predecessor = nullptr;
-    while (current != nullptr) {
+    Node<T>* predecessor = NULL;
+    while (current != NULL) {
         if (current->data == data) {
             Node<T>* nodeToRemove = current;
-            if (predecessor == nullptr) {
+            if (predecessor == NULL) {
                 this->head = current->next;
             } else {
                 predecessor->next = current->next;
@@ -120,7 +160,7 @@ void CLinkedList<T>::print() const {
         std::cout << "Empty" << std::endl;
     } else {
         Node<T>* current = this->head;
-        while (current->next != this->head) {
+        while (current->next != NULL && current->next != this->head) {
             std::cout << current->data << " -> ";
             current = current->next;
         }
@@ -144,46 +184,19 @@ void CLinkedList<T>::reverse() {
 
 template <class T>
 void CLinkedList<T>::clear() {
-    while (this->head != NULL) {
-        this->remove(0);
-    }
-}
-
-template <class T>
-int CLinkedList<T>::length() const {
-    int size = 0;
     if (this->head != NULL) {
-        size += 1;
-        Node<T>* current = this->head->next;
-        while (current != this->head) {
-            size += 1;
-            current = current->next;
+        Node<T>* current = this->head;
+        while (current != NULL && current->next != this->head) {
+            Node<T>* nodeToDelete = current->next;
+            current->next = current->next->next;
+            nodeToDelete->next = NULL;
+            delete nodeToDelete;
+            nodeToDelete = NULL;
         }
+        this->head->next = NULL;
+        delete this->head;
+        this->head = NULL;
     }
-
-    return size;
-}
-
-template <class T>
-T CLinkedList<T>::get(int index) const {
-	int length = this->length();
-	int indexGet = 0;
-	if (this->head != NULL) {
-		if (index == 0) {
-			return this->head->data;
-		} else if (index > 0 && index < length) {
-			Node<T>* current = this->head->next;
-			while (current != this->head && indexGet < length) {
-				if (indexGet == index) {
-					return current;
-				}
-				current = current->next;
-				indexGet += 1;
-			}
-		}
-	}
-
-	return T();
 }
 
 template <class T>
@@ -425,15 +438,15 @@ bool CLinkedList<T>::operator==(const CLinkedList<T> &other) const {
     Node<T>* currentFirstList = firstList.head;
     do {
         Node<T>* currentSecondList = secondList.head;
-        Node<T>* predecessor2 = nullptr;
-        while (currentSecondList != nullptr && currentSecondList->data != currentFirstList->data) {
+        Node<T>* predecessor2 = NULL;
+        while (currentSecondList != NULL && currentSecondList->data != currentFirstList->data) {
             predecessor2 = currentSecondList;
             currentSecondList = currentSecondList->next;
         }
-        if (currentSecondList == nullptr) {
+        if (currentSecondList == NULL) {
             return false;
         }
-        if (predecessor2 == nullptr) {
+        if (predecessor2 == NULL) {
             secondList.head = currentSecondList->next;
         } else {
             predecessor2->next = currentSecondList->next;
@@ -442,7 +455,7 @@ bool CLinkedList<T>::operator==(const CLinkedList<T> &other) const {
         currentFirstList = currentFirstList->next;
     } while (currentFirstList != firstList.head);
 
-    if (secondList.head != nullptr) {
+    if (secondList.head != NULL) {
         return false;
     }
 
@@ -450,15 +463,15 @@ bool CLinkedList<T>::operator==(const CLinkedList<T> &other) const {
     currentFirstList = other.head;
     do {
         Node<T>* currentSecondList = secondList.head;
-        Node<T>* predecessor2 = nullptr;
-        while (currentSecondList != nullptr && currentSecondList->data != currentFirstList->data) {
+        Node<T>* predecessor2 = NULL;
+        while (currentSecondList != NULL && currentSecondList->data != currentFirstList->data) {
             predecessor2 = currentSecondList;
             currentSecondList = currentSecondList->next;
         }
-        if (currentSecondList == nullptr) {
+        if (currentSecondList == NULL) {
             return false;
         }
-        if (predecessor2 == nullptr) {
+        if (predecessor2 == NULL) {
             secondList.head = currentSecondList->next;
         } else {
             predecessor2->next = currentSecondList->next;
@@ -467,7 +480,7 @@ bool CLinkedList<T>::operator==(const CLinkedList<T> &other) const {
         currentFirstList = currentFirstList->next;
     } while (currentFirstList != other.head);
 
-    return secondList.head == nullptr;
+    return secondList.head == NULL;
 }
 
 template <class T>
@@ -495,8 +508,8 @@ CLinkedList<T>* CLinkedList<T>::operator-(const CLinkedList<T> &other) const {
 
 template <class T>
 void CLinkedList<T>::consume(CLinkedList<T> &other) {
-    if (this != &other && other.head != nullptr) {
-        if (this->head == nullptr) {
+    if (this != &other && other.head != NULL) {
+        if (this->head == NULL) {
             this->head = other.head;
         } else {
             Node<T>* current = this->head;
@@ -510,6 +523,6 @@ void CLinkedList<T>::consume(CLinkedList<T> &other) {
             }
             otherCurrent->next = this->head;
         }
-        other.head = nullptr;
+        other.head = NULL;
     }
 }

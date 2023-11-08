@@ -4,3 +4,5 @@
 *.o
 src/*.pdf
 src/*.o
+main
+src/main
