@@ -300,7 +300,7 @@ void CLinkedList<T>::slice(int start, int end) {
 }
 
 template <class T>
-void CLinkedList<T>::RRotate(int k) {
+void CLinkedList<T>::LRotate(int k) {
     int length = this->length();
     if (length == 0 || k < 0) {
         return;
@@ -320,7 +320,7 @@ void CLinkedList<T>::RRotate(int k) {
 }
 
 template <class T>
-void CLinkedList<T>::LRotate(int k) {
+void CLinkedList<T>::RRotate(int k) {
     int length = this->length();
     if (length == 0 || k < 0) {
         return;
@@ -377,64 +377,44 @@ CLinkedList<T>& CLinkedList<T>::operator=(const CLinkedList<T>& other) {
 
 template <class T>
 bool CLinkedList<T>::operator==(const CLinkedList<T> &other) const {
-    if (this->length() != other.length()) {
+    if (this != &other) {
+        int firstLength = this->length();
+        int secondLength = other.length();
+        CLinkedList<T> secondList;
+        CLinkedList<T> firstList;
+        if (firstLength == secondLength) {
+            for (int i = 0; i < firstLength; i++) {
+                firstList.append(this->get(i));
+            }
+            for (int i = 0; i < secondLength; i++) {
+                secondList.append(other.get(i));
+            }
+            for (int i = 0; i < firstList.length(); ) {
+                bool found = false;
+                for (int j = 0; j < secondList.length(); j++) {
+                    if (firstList.get(i) == secondList.get(j)) {
+                        firstList.remove(i);
+                        secondList.remove(j);
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    i++;
+                }
+            }
+
+            return firstList.length() == 0 && secondList.length() == 0;
+        }
         return false;
+    } else {
+        return true;
     }
-
-    CLinkedList<T> firstList = *this;
-    CLinkedList<T> secondList = other;
-
-    Node<T>* currentFirstList = firstList.head;
-    do {
-        Node<T>* currentSecondList = secondList.head;
-        Node<T>* predecessor2 = NULL;
-        while (currentSecondList != NULL && currentSecondList->data != currentFirstList->data) {
-            predecessor2 = currentSecondList;
-            currentSecondList = currentSecondList->next;
-        }
-        if (currentSecondList == NULL) {
-            return false;
-        }
-        if (predecessor2 == NULL) {
-            secondList.head = currentSecondList->next;
-        } else {
-            predecessor2->next = currentSecondList->next;
-        }
-        delete currentSecondList;
-        currentFirstList = currentFirstList->next;
-    } while (currentFirstList != firstList.head);
-
-    if (secondList.head != NULL) {
-        return false;
-    }
-
-    secondList = *this;
-    currentFirstList = other.head;
-    do {
-        Node<T>* currentSecondList = secondList.head;
-        Node<T>* predecessor2 = NULL;
-        while (currentSecondList != NULL && currentSecondList->data != currentFirstList->data) {
-            predecessor2 = currentSecondList;
-            currentSecondList = currentSecondList->next;
-        }
-        if (currentSecondList == NULL) {
-            return false;
-        }
-        if (predecessor2 == NULL) {
-            secondList.head = currentSecondList->next;
-        } else {
-            predecessor2->next = currentSecondList->next;
-        }
-        delete currentSecondList;
-        currentFirstList = currentFirstList->next;
-    } while (currentFirstList != other.head);
-
-    return secondList.head == NULL;
 }
 
 template <class T>
 void CLinkedList<T>::operator+=(const CLinkedList<T> &other) {
-    if (this != &other && !(*this == other)) {
+    if (!(*this == other)) {
         Node<T>* current = other.head;
         do {
             this->append(current->data);
