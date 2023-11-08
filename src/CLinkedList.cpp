@@ -44,12 +44,48 @@ void CLinkedList<T>::append(T data) {
 
 template <class T>
 void CLinkedList<T>::remove(int index) {
-    // remove implementation goes here
+    int length = this->length();
+    if (index < length && index >= 0) {
+        Node<T>* nodeToRemove;
+        if (index == 0) {
+            nodeToRemove = this->head;
+            Node<T>* current = this->head;
+            while (current->next != this->head) {
+                current = current->next;
+            }
+            current->next = this->head->next;
+            this->head = this->head->next;
+        } else {
+            Node<T>* current = this->head;
+            for (int i = 0; i < index - 1; i++) {
+                current = current->next;
+            }
+            nodeToRemove = current->next;
+            current->next = current->next->next;
+        }
+        delete nodeToRemove;
+        nodeToRemove = NULL;
+    }
 }
 
 template <class T>
 void CLinkedList<T>::insert(T data, int index) {
-    // insert implementation goes here
+    int length = this->length();
+    if (index <= length && index >= 0) {
+        if (index == 0) {
+            this->prepend(data);
+        } else if (index == length) {
+            this->append(data);
+        } else {
+            Node* newNode = new Node(data);
+            Node* current = this->head;
+            for (int i = 0; i < index - 1; i++) {
+                current = current->next;
+            }
+            newNode->next = current->next;
+            current->next = newNode;
+        }
+    }
 }
 
 template <class T>
