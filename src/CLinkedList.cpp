@@ -88,6 +88,7 @@ template <class T>
 int CLinkedList<T>::length() const {
     int size = 0;
     if (this->head != NULL) {
+        size += 1;
         Node<T>* current = this->head->next;
         while (current != this->head) {
             size += 1;
