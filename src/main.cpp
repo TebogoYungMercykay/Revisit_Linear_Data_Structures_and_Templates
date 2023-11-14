@@ -22,6 +22,7 @@ using namespace std;
 // void t6();
 
 int main(){
+    std::cout << "Hello Linear Data Structures (*_*)."
     // t1();
     // t2();
     // t3();
