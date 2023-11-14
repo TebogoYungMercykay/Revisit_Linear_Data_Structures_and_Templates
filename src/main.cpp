@@ -14,7 +14,7 @@
 
 using namespace std;
 
-void t1();
+// void t1();
 // void t2();
 // void t3();
 // void t4();
@@ -22,7 +22,7 @@ void t1();
 // void t6();
 
 int main(){
-    t1();
+    // t1();
     // t2();
     // t3();
     // t4();
@@ -31,27 +31,27 @@ int main(){
     return 0;
 }
 
-void t1(){
-    CLinkedList<int> list;
-    cout << "-------------------------------" << endl;
-    cout << "----- Testing ClinkedList -----" << endl;
-    list.append(1);
-    list.append(2);
-    list.prepend(3);
-    list.insert(4, 3);
-    list.print();// Output should be "3 -> 1 -> 2 -> 4\n"
-    list.remove(0);//remember remove works based of index
-    list.remove(0);
-    list.remove(100);//test for invalid
-    list.remove(1);
-    list.removeElements(2);
-    list.print();// Output should be "Empty\n
-    list.append(1);
-    list.append(1);
-    list.print();// Output should be "1 -> 1\n"
-    list.removeElements(1);
-    list.print();// Output should be "Empty\n
-}
+// void t1(){
+//     CLinkedList<int> list;
+//     cout << "-------------------------------" << endl;
+//     cout << "----- Testing ClinkedList -----" << endl;
+//     list.append(1);
+//     list.append(2);
+//     list.prepend(3);
+//     list.insert(4, 3);
+//     list.print();// Output should be "3 -> 1 -> 2 -> 4\n"
+//     list.remove(0);//remember remove works based of index
+//     list.remove(0);
+//     list.remove(100);//test for invalid
+//     list.remove(1);
+//     list.removeElements(2);
+//     list.print();// Output should be "Empty\n
+//     list.append(1);
+//     list.append(1);
+//     list.print();// Output should be "1 -> 1\n"
+//     list.removeElements(1);
+//     list.print();// Output should be "Empty\n
+// }
 
 // void t2(){
 //     CLinkedList<int> list;
