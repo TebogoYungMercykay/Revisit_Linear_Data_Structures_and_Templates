@@ -1,0 +1,8 @@
+# Add Files Here
+
+*.pdf
+*.o
+src/*.pdf
+src/*.o
+main
+src/main
