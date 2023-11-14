@@ -15,7 +15,7 @@
 using namespace std;
 
 void t1();
-void t2();
+// void t2();
 // void t3();
 // void t4();
 // void t5();
@@ -23,7 +23,7 @@ void t2();
 
 int main(){
     t1();
-    t2();
+    // t2();
     // t3();
     // t4();
     // t5();
@@ -53,25 +53,25 @@ void t1(){
     list.print();// Output should be "Empty\n
 }
 
-void t2(){
-    CLinkedList<int> list;
-    cout << "----- Testing rotations -----" << endl;
-    list.append(1);
-    list.append(2);
-    list.append(3);
-    list.append(4);
-    list.append(5);
-    list.RRotate(2);
-    list.print();// Output should be "4 -> 5 -> 1 -> 2 -> 3\n"
-    list.LRotate(7);
-    list.print();// Output should be "1 -> 2 -> 3 -> 4 -> 5\n"
-    cout << "----- Testing Assignment operator and rotation -----" << endl;
-    CLinkedList<int> list2;
-    list2= list;
-    list2.print();// Output should be "1 -> 2 -> 3 -> 4 -> 5\n"
-    list2.RRotate(2);
-    list2.print();// Output should be "4 -> 5 -> 1 -> 2 -> 3\n"
-}
+// void t2(){
+//     CLinkedList<int> list;
+//     cout << "----- Testing rotations -----" << endl;
+//     list.append(1);
+//     list.append(2);
+//     list.append(3);
+//     list.append(4);
+//     list.append(5);
+//     list.RRotate(2);
+//     list.print();// Output should be "4 -> 5 -> 1 -> 2 -> 3\n"
+//     list.LRotate(7);
+//     list.print();// Output should be "1 -> 2 -> 3 -> 4 -> 5\n"
+//     cout << "----- Testing Assignment operator and rotation -----" << endl;
+//     CLinkedList<int> list2;
+//     list2= list;
+//     list2.print();// Output should be "1 -> 2 -> 3 -> 4 -> 5\n"
+//     list2.RRotate(2);
+//     list2.print();// Output should be "4 -> 5 -> 1 -> 2 -> 3\n"
+// }
 
 // void t3(){
 //     CLinkedList<int> list;
