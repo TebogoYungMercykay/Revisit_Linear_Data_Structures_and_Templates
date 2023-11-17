@@ -20,4 +20,6 @@ class Stack {
         bool isEmpty() const;
 };
 
+#include "Stack.cpp"
+
 #endif
