@@ -27,4 +27,6 @@ class List {
         List<T>& operator=(const List<T>& other);
 };
 
+#include "List.cpp"
+
 #endif

@@ -41,4 +41,6 @@ class CLinkedList : public List<T> {
         void consume(CLinkedList<T> &other);
 };
 
+#include "CLinkedList.cpp"
+
 #endif
