@@ -5,12 +5,12 @@
 #include "Node.h"
 #include "List.h"
 #include "CLinkedList.h"
-#include "CLinkedList.cpp"
-#include "List.cpp"
+// #include "CLinkedList.cpp"
+// #include "List.cpp"
 #include "Stack.h"
-#include "Stack.cpp"
+// #include "Stack.cpp"
 #include "Queue.h"
-#include "Queue.cpp"
+// #include "Queue.cpp"
 
 using namespace std;
 
@@ -22,7 +22,7 @@ using namespace std;
 // void t6();
 
 int main(){
-    std::cout << "Hello Linear Data Structures (*_*)."
+    std::cout << "Hello Linear Data Structures (*_*)." << std::endl;
     // t1();
     // t2();
     // t3();

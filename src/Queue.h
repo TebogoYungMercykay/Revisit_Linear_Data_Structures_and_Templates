@@ -24,4 +24,6 @@ class Queue {
         bool isEmpty() const;
 };
 
+#include "Queue.cpp"
+
 #endif
