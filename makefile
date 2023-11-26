@@ -9,6 +9,9 @@ clean:
 run:
 	./main
 
+valgrind:
+	valgrind --leak-check=full ./main
+
 tar:
 	tar -cvz skeleton_code.cpp makefile -f SkeletonCode.tar.gz
 
