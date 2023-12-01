@@ -30,6 +30,7 @@ int main(){
 
 void t1(){
     // CLinkedList<int> list;
+    
     // cout << "-------------------------------" << endl;
     cout << "----- Testing ClinkedList -----" << endl;
     // list.append(1);
@@ -52,6 +53,7 @@ void t1(){
 
 void t2(){
     // CLinkedList<int> list;
+    
     cout << "----- Testing rotations -----" << endl;
     // list.append(1);
     // list.append(2);
@@ -72,6 +74,7 @@ void t2(){
 
 void t3(){
     // CLinkedList<int> list;
+    
     cout << "----- Append, Prepend and Print -----" << endl;
     // list.append(1);
     // list.clear();
