@@ -499,32 +499,32 @@ void t6(){
     // queue.enqueue(2);
     // queue.enqueue(3);
     // queue.enqueue(4);
-    // cout << queue.dequeue() << endl;// Output should be "1\n"
-    // cout << queue.peek() << endl;// Output should be "2\n"
-    // cout << queue.dequeue() << endl;// Output should be "2\n"
-    // cout << queue.dequeue() << endl;// Output should be "3\n"
-    // cout << queue.dequeue() << endl;// Output should be "4\n"
-    // cout << queue.dequeue() << endl;// Output should be "0\n" since we are returning the default val
+    // cout << queue.dequeue() << endl; // Output should be "1\n"
+    // cout << queue.peek() << endl; // Output should be "2\n"
+    // cout << queue.dequeue() << endl; // Output should be "2\n"
+    // cout << queue.dequeue() << endl; // Output should be "3\n"
+    // cout << queue.dequeue() << endl; // Output should be "4\n"
+    // cout << queue.dequeue() << endl; // Output should be "0\n" since we are returning the default val
     // queue.enqueue(1);
     // queue.enqueue(2);
     // queue.enqueue(3);
     
     cout << "----- Testing copy constructor -----" << endl;
     // Queue<int> queue2(queue);
-    // cout << queue2.dequeue() << endl;// Output should be "1\n"
-    // cout << queue2.dequeue() << endl;// Output should be "2\n"
-    // cout << queue2.dequeue() << endl;// Output should be "3\n"
-    // cout << queue2.dequeue() << endl;// Output should be "0\n" since we are returning the default val
-    // cout << queue.dequeue() << endl;// Output should be "1\n"
-    // cout << queue.dequeue() << endl;// Output should be "2\n"
-    // cout << queue.dequeue() << endl;// Output should be "3\n"
-    // cout << queue.dequeue() << endl;// Output should be "0\n" since we are returning the default val
-    // //loading up items to test destructor
+    // cout << queue2.dequeue() << endl; // Output should be "1\n"
+    // cout << queue2.dequeue() << endl; // Output should be "2\n"
+    // cout << queue2.dequeue() << endl; // Output should be "3\n"
+    // cout << queue2.dequeue() << endl; // Output should be "0\n" since we are returning the default val
+    // cout << queue.dequeue() << endl; // Output should be "1\n"
+    // cout << queue.dequeue() << endl; // Output should be "2\n"
+    // cout << queue.dequeue() << endl; // Output should be "3\n"
+    // cout << queue.dequeue() << endl; // Output should be "0\n" since we are returning the default val
+    // // loading up items to test destructor
     // queue.enqueue(1);
     // queue.enqueue(2);
     // queue.enqueue(3);
 
-    // cout << queue.peek() << endl;// Output should be "1\n"
+    // cout << queue.peek() << endl; // Output should be "1\n"
 
     // cout << ((queue.isEmpty() == false) ? "True" : "False") << endl;
     // cout << ((queue2.isEmpty() == false) ? "True" : "False") << endl;
