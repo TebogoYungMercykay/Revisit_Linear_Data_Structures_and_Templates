@@ -453,42 +453,43 @@ void t4(){
     // list7.print();
 }
 
-// void t5(){
-//     cout << "-------------------------" << endl;
-//     cout << "----- Testing Stack -----" << endl;
-//     Stack<int> stack;
-//     stack.push(1);
-//     stack.push(2);
-//     stack.push(3);
-//     stack.push(4);
-//     cout << stack.pop() << endl;// Output should be "4\n"
-//     cout << stack.peek() << endl;// Output should be "3\n"
-//     cout << stack.pop() << endl;// Output should be "3\n"
-//     cout << stack.pop() << endl;// Output should be "2\n"
-//     cout << stack.pop() << endl;// Output should be "1\n"
-//     cout << stack.pop() << endl;// Output should be "0\n" since we are returning the default val
-//     stack.push(1);
-//     stack.push(2);
-//     stack.push(3);
-//     cout << "----- Testing copy constructor -----" << endl;
-//     Stack<int> stack2(stack);
-//     cout << stack2.pop() << endl;// Output should be "3\n"
-//     cout << stack2.pop() << endl;// Output should be "2\n"
-//     cout << stack2.pop() << endl;// Output should be "1\n"
-//     cout << stack2.pop() << endl;// Output should be "0\n" since we are returning the default val
-//     cout << stack.pop() << endl;// Output should be "3\n"
-//     cout << stack.pop() << endl;// Output should be "2\n"
-//     cout << stack.pop() << endl;// Output should be "1\n"
-//     cout << stack.pop() << endl;// Output should be "0\n" since we are returning the default val
-//     //loading up items to test destructor
-//     stack.push(1);
-//     stack.push(2);
-//     stack.push(3);
-//     cout << stack.peek() << endl;// Output should be "3\n"
+void t5(){
+    // cout << "-------------------------" << endl;
+    cout << "----- Testing Stack -----" << endl;
+    // Stack<int> stack;
+    // stack.push(1);
+    // stack.push(2);
+    // stack.push(3);
+    // stack.push(4);
+    // cout << stack.pop() << endl;// Output should be "4\n"
+    // cout << stack.peek() << endl;// Output should be "3\n"
+    // cout << stack.pop() << endl;// Output should be "3\n"
+    // cout << stack.pop() << endl;// Output should be "2\n"
+    // cout << stack.pop() << endl;// Output should be "1\n"
+    // cout << stack.pop() << endl;// Output should be "0\n" since we are returning the default val
+    // stack.push(1);
+    // stack.push(2);
+    // stack.push(3);
+    
+    cout << "----- Testing copy constructor -----" << endl;
+    // Stack<int> stack2(stack);
+    // cout << stack2.pop() << endl;// Output should be "3\n"
+    // cout << stack2.pop() << endl;// Output should be "2\n"
+    // cout << stack2.pop() << endl;// Output should be "1\n"
+    // cout << stack2.pop() << endl;// Output should be "0\n" since we are returning the default val
+    // cout << stack.pop() << endl;// Output should be "3\n"
+    // cout << stack.pop() << endl;// Output should be "2\n"
+    // cout << stack.pop() << endl;// Output should be "1\n"
+    // cout << stack.pop() << endl;// Output should be "0\n" since we are returning the default val
+    // //loading up items to test destructor
+    // stack.push(1);
+    // stack.push(2);
+    // stack.push(3);
+    // cout << stack.peek() << endl;// Output should be "3\n"
 
-//     cout << ((stack.isEmpty() == false) ? "True" : "False") << endl;
-//     cout << ((stack2.isEmpty() == false) ? "True" : "False") << endl;
-// }
+    // cout << ((stack.isEmpty() == false) ? "True" : "False") << endl;
+    // cout << ((stack2.isEmpty() == false) ? "True" : "False") << endl;
+}
 
 // void t6(){
 //     cout << "-------------------------" << endl;
