@@ -1,5 +1,3 @@
-Here 
-
 # Data Structures in C++
 
 This repository contains my implementation of some common data structures in C++, such as linked lists, stacks, queues, and templates. The purpose of this project is to practice and demonstrate my skills in object-oriented programming, memory management, and generic programming.
