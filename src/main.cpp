@@ -302,6 +302,7 @@ void t3(){
 
 void t4(){
     // CLinkedList<int> list;
+
     cout << "----- Testing rotations -----" << endl;
     // list.append(1);
     // list.append(2);
@@ -314,7 +315,8 @@ void t4(){
     // list.append(9);
     // list.append(10);
     // list.append(11);
-    // cout << "----- RRotate -----" << endl;
+
+    cout << "----- RRotate -----" << endl;
     // list.print();
     // list.RRotate(1);
     // list.print();
@@ -345,6 +347,7 @@ void t4(){
     // list.clear();
     // list2.print();
     // list2.clear();
+    
     cout << "----- Equals Operator -----" << endl;
     // list2.append(1);
     // list2.append(2);
@@ -403,7 +406,7 @@ void t4(){
     // cout << ((list9 == list10) ? "True" : "False") << endl;
     // cout << ((list10 == list10) ? "True" : "False") << endl;
 
-    // cout << "----- Plus-Equals Operator -----" << endl;
+    cout << "----- Plus-Equals Operator -----" << endl;
     // list9.print();
     // list8.print();
     // list7 = list9;
@@ -438,7 +441,8 @@ void t4(){
     // myList->print();
     // delete myList;
     // myList = NULL;
-    // cout << "----- Consume -----" << endl;
+    
+    cout << "----- Consume -----" << endl;
     // list8.print();
     // list7.print();
     // list8.consume(list7);
