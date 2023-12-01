@@ -37,18 +37,18 @@ void t1(){
     // list.append(2);
     // list.prepend(3);
     // list.insert(4, 3);
-    // list.print();// Output should be "3 -> 1 -> 2 -> 4\n"
-    // list.remove(0);//remember remove works based of index
+    // list.print(); // Output should be "3 -> 1 -> 2 -> 4\n"
+    // list.remove(0); //remember remove works based of index
     // list.remove(0);
-    // list.remove(100);//test for invalid
+    // list.remove(100); //test for invalid
     // list.remove(1);
     // list.removeElements(2);
-    // list.print();// Output should be "Empty\n
+    // list.print(); // Output should be "Empty\n
     // list.append(1);
     // list.append(1);
-    // list.print();// Output should be "1 -> 1\n"
+    // list.print(); // Output should be "1 -> 1\n"
     // list.removeElements(1);
-    // list.print();// Output should be "Empty\n
+    // list.print(); // Output should be "Empty\n
 }
 
 void t2(){
@@ -61,15 +61,15 @@ void t2(){
     // list.append(4);
     // list.append(5);
     // list.RRotate(2);
-    // list.print();// Output should be "4 -> 5 -> 1 -> 2 -> 3\n"
+    // list.print(); // Output should be "4 -> 5 -> 1 -> 2 -> 3\n"
     // list.LRotate(7);
-    // list.print();// Output should be "1 -> 2 -> 3 -> 4 -> 5\n"
+    // list.print(); // Output should be "1 -> 2 -> 3 -> 4 -> 5\n"
     // cout << "----- Testing Assignment operator and rotation -----" << endl;
     // CLinkedList<int> list2;
-    // list2= list;
-    // list2.print();// Output should be "1 -> 2 -> 3 -> 4 -> 5\n"
+    // list2 = list;
+    // list2.print(); // Output should be "1 -> 2 -> 3 -> 4 -> 5\n"
     // list2.RRotate(2);
-    // list2.print();// Output should be "4 -> 5 -> 1 -> 2 -> 3\n"
+    // list2.print(); // Output should be "4 -> 5 -> 1 -> 2 -> 3\n"
 }
 
 void t3(){
