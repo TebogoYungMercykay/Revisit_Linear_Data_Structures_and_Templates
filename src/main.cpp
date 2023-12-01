@@ -10,12 +10,12 @@
 
 using namespace std;
 
-// void t1();
-// void t2();
-// void t3();
-// void t4();
-// void t5();
-// void t6();
+void t1();
+void t2();
+void t3();
+void t4();
+void t5();
+void t6();
 
 int main(){
     std::cout << "Hello Linear Data Structures (*_*)." << std::endl;
