@@ -19,12 +19,12 @@ void t6();
 
 int main(){
     std::cout << "Hello Linear Data Structures (*_*)." << std::endl;
-    // t1();
-    // t2();
-    // t3();
-    // t4();
-    // t5();
-    // t6();
+    t1();
+    t2();
+    t3();
+    t4();
+    t5();
+    t6();
     return 0;
 }
 
