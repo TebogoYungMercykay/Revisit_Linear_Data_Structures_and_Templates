@@ -5,8 +5,6 @@
 #include "Node.h"
 #include "List.h"
 #include "CLinkedList.h"
-// #include "CLinkedList.cpp"
-// #include "List.cpp"
 #include "Stack.h"
 // #include "Stack.cpp"
 #include "Queue.h"
