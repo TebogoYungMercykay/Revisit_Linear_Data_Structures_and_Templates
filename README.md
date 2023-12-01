@@ -1,4 +1,4 @@
-Here is a possible README file for your repository where you implement linked lists, stacks, queues, and templates in C++:
+Here 
 
 # Data Structures in C++
 
